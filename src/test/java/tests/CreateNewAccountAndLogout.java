@@ -37,6 +37,7 @@ public class CreateNewAccountAndLogout extends BaseTest {
         createAccountPage.confirmPassword(confirmPassword);
         createAccountPage.submitRegistration();
         createAccountPage.clickLogoutAfterRegistration();
+        assertEquals(createAccountPage.showMessageAfterSuccessfulLogout(), "Sėkmingai atsijungėte");
     }
 
     /**
@@ -83,7 +84,7 @@ public class CreateNewAccountAndLogout extends BaseTest {
         createAccountPage = new CreateAccountPage(driver);
 
         createAccountPage.clickCreateAccount();
-        createAccountPage.enterNewUsername("OkisDokis");
+        createAccountPage.enterNewUsername("OkisDokis9");
         createAccountPage.enterNewPassword("Nesakysiu");
         createAccountPage.confirmPassword("Nesak");
         createAccountPage.submitRegistration();

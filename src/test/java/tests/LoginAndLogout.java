@@ -21,6 +21,7 @@ public class LoginAndLogout extends BaseTest {
      * Click login
      * Check if username is displayed
      * Logout
+     * Check if message about successful logout is displayed
      */
 
     @Test(groups = { "UI" })
@@ -33,6 +34,7 @@ public class LoginAndLogout extends BaseTest {
         loginPage.clickLogin();
         assertEquals(loginPage.findLoggedUserName(), "Logout, ruta999");
         loginPage.clickLogout();
+        assertEquals((loginPage.showMessageIfLogoutWasSuccessful()), "Sėkmingai atsijungėte");
     }
 
     /**

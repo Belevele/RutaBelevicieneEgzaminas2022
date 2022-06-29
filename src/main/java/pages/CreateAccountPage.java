@@ -3,15 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.WaitUtils;
-
-import java.util.Random;
 
 public class CreateAccountPage extends AbstractObjectPage {
 
-    @FindBy(xpath = "/html/body/div/form/div/h4/a")
-    private WebElement createAccount;
-
+    // input fields
     @FindBy (id = "username")
     private WebElement createUsername;
 
@@ -21,14 +16,20 @@ public class CreateAccountPage extends AbstractObjectPage {
     @FindBy (id = "passwordConfirm")
     private WebElement confirmPassword;
 
+    //buttons
+    @FindBy(xpath = "/html/body/div/form/div/h4/a")
+    private WebElement createAccount;
+
     @FindBy (xpath = "//*[@id=\"userForm\"]/button")
     private WebElement submit;
 
-    @FindBy(xpath = "/html/body/nav/div/ul[2]/a")
-    private WebElement logout;
-
     @FindBy (xpath = "//html/body/nav/div/ul[2]/a")
     private WebElement logoutAfterRegistration;
+
+    // messages
+
+    @FindBy (xpath = "/html/body/div/form/div/span[1]")
+    private WebElement successfulLogoutAfterRegistration;
 
     @FindBy (id = "username.errors")
     private WebElement usernameErrorMessage;
@@ -62,6 +63,11 @@ public class CreateAccountPage extends AbstractObjectPage {
 
     public void clickLogoutAfterRegistration() {
         logoutAfterRegistration.click();
+    }
+
+    public String showMessageAfterSuccessfulLogout() {
+        String messageSuccessfulLogout = successfulLogoutAfterRegistration.getText();
+        return messageSuccessfulLogout;
     }
 
     public String showErrorMessageIfUserIsNotValid() {

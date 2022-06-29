@@ -6,24 +6,26 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractObjectPage {
 
+    // input fields
     @FindBy(name = "username")
     private WebElement username;
 
     @FindBy(name = "password")
     private WebElement password;
 
+    // buttons
     @FindBy(xpath = "/html/body/div/form/div/button")
     private WebElement login;
 
     @FindBy(xpath = "/html/body/nav/div/ul[2]/a")
     private WebElement logout;
 
+    // messsages
+    @FindBy(xpath = "/html/body/div/form/div/span[1]")
+    private WebElement successfullLogout;
+
     @FindBy(xpath = "/html/body/div/form/div/span[2]")
     private WebElement messageIfUserIsNotValid;
-
-//    @FindBy(xpath = "/html/body/div/h2/a")
-//    private WebElement logout;
-//
 
 
     public LoginPage(WebDriver driver) {
@@ -49,6 +51,11 @@ public class LoginPage extends AbstractObjectPage {
 
     public void clickLogout() {
         logout.click();
+    }
+
+    public String showMessageIfLogoutWasSuccessful() {
+        String messageSuccessfulLogout = successfullLogout.getText();
+        return messageSuccessfulLogout;
     }
 
     public String showErrorMessageIfUserIsNotValid() {
