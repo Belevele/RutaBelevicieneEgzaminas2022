@@ -22,15 +22,15 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
         driver.get("http://localhost:8080");
     }
-//
-//    @AfterMethod(groups = { "UI" })
-//    public void closeBrowser() {
-//        driver.manage().deleteAllCookies();
-//        driver.close();
-//    }
-//
-//    @AfterSuite(groups = { "UI" })
-//    public void quitDriver() {
-//        driver.quit();
-//    }
+
+    @AfterMethod(groups = { "UI" })
+    public void closeBrowser() {
+        driver.manage().deleteAllCookies();
+        driver.close();
+    }
+
+    @AfterSuite(groups = { "UI" })
+    public void quitDriver() {
+        driver.quit();
+    }
 }
